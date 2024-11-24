@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Changer</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="color-div">
+		<span id="text">Bashir</span>
+	</div>
+	
+	<script src="script.js"></script>
+</body>
+</html>
+<style>
+#color-div {
+	width: 200px;
+	height: 100px;
+	text-align: center;
+	font-size: 24px;
+	color: yellow;
+	background-color: red;
+	transition: background-color 3s, color 3s;
+	position: relative;
+	animation-name: Bash;
+	animation-duration: 15s;
+	border: 6px outset black;
+	border-radius: 0px 70px;
+}  @keyframes Bash {
+      0% { background-color: blue; left: 0px; top: 0px;}
+       25% { background-color: green; left: 200px; top: 0px;}
+       50% { background-color: white; left: 200px; top: 200px;}
+       75% { background-color: magenta; left: 0px; top: 200px;}
+       100% { background-color: pink; left: 0px; top: 0px;}
+  }
+#text {
+	transition: Bash 1s;
+}
+</style>
+<script>
+const colorDiv = document.getElementById('color-div');
+const textSpan = document.getElementById('text');
+
+let colors = ['red', 'green', 'blue'];
+let texts = ['Bashir', 'Mahmud', 'Muktar'];
+let index = 0;
+
+setInterval(() => {
+	colorDiv.style.backgroundColor = colors[index];
+	textSpan.textContent = texts[index];
+	index = (index + 1) % 3;
+}, 2000);
+</script>
